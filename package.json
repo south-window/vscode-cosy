@@ -4,7 +4,7 @@
   "displayName": "COSY Infinity",
   "description": "Syntax highlighting for beam dynamics simulation and analysis code COSY INFINITY.",
   "version": "0.0.1",
-  "icon":"./COSY Infinity_12.ico",
+  "icon":"COSY Infinity_12.ico",
   "engines": {
     "vscode": "^1.79.0"
   },
