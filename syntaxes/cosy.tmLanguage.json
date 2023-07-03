@@ -1,0 +1,186 @@
+{
+	"$schema": "https://raw.githubusercontent.com/martinring/tmlanguage/master/tmlanguage.json",
+	"name": "COSY",
+	"patterns": [
+		{
+			"include": "#keywords"
+		},
+		{
+			"include": "#strings"
+		},
+		{
+			"include": "#comments"
+		},
+		{
+			"include": "#math"
+		},
+		{
+			"include": "#operators"
+		},
+		{
+			"include": "#endfunctions"
+		},
+		{
+			"include": "#BeamPhysics"
+		},
+		{
+			"include": "#numbers"
+		},
+		{
+			"include": "#ios"
+		},
+		{
+			"include": "#beginends"
+		},
+		{
+			"include": "#procedures"
+		},
+		{
+			"include": "#identifier"
+		}
+
+	],
+
+	"repository": {
+		"keywords": {
+			"patterns": [{
+				"name": "keyword.control.cosy",
+				"match": "(?xi)\\b(if|endif|elseif|while|endwhile|loop|endloop|ploop|endploop|fit|endfit)\\b"
+			}]
+		},
+		"strings": {
+			"name": "string.quoted.double.cosy",
+			"begin": "\"",
+			"end": "\"",
+			"patterns": [
+				{
+					"name": "constant.character.escape.cosy",
+					"match": "\\\\."
+				}
+			]
+		},
+
+		"comments": {
+			"patterns": [
+			  {
+				"name": "comment.block.cosy",
+				"begin": "\\{",
+				"end": "\\}"
+			  }
+			]
+		  },
+		
+		"math": {
+			"patterns": [
+			  {
+				"match": "(?xi)\\b(?<!\\.)(sqrt|log|log|exp|sin|cos|tan|asin|acos|atan|sinh|cosh|tanh|isrt|isrt3|sqr)\\b",
+				"name": "entity.name.function.cosy"
+			  }
+			  
+			]
+		},
+		"numbers":{ 
+			"patterns": [
+				{
+					"name": "constant.numeric.float.cosy",
+					"match": "\\b(?<!\\.)([0-9]+\\.{1}[0-9]*)([eEdD]{1}[\\-|\\+]?[0-9]+)?\\b"
+				},
+				{
+					"name": "constant.numeric.integer.cosy",
+					"match": "\\b(?<!\\.)([0-9]+)([eEdD]{1}[\\-|\\+]?[0-9]+)?\\b"
+				}
+			]
+		},
+		"BeamPhysics":{
+			"patterns": [
+				{
+					"name": "entity.name.function.cosy",
+					"match": "(?xi)\\b(rp|rpe|rpp|rpr|rpm|rps|sb|sp|sbe|um|sm|snm|am|anm|pm|psm|wm|rm|wsm|rsm|me|sigma|mr|mt|sr|ssr|er|scde|envel|encl|cr|pray|wray|pr|rray|sray|lray|aray|addrays|pspi|wspi|rspi|sspi|lspi|aspi|addspis|pty|bp|ep|pp|pg|pge|ps|dl|cb|mq|mh|mo|md|mz|m5|mm|mms|eq|eh|eo|ed|ez|e5|em|ems|ms|es|ec|ecl|esp|di|mss|dp|mc|wf|wc|wi|rf|cmr|cml|cmsi|cms|cmst|cmg|cel|cea|ceg|fr|fc|fp|fd|eset|wset|crsysca|fc2|fd2|ge|mf|mge|was|wa|bbc|el|wl|gls|gl|gp|gms|gmp|gmf|gm|sa|ta|ra|pa|ma|pt|ar|rr|tp|nf|ts|tsc|rfilt|rs|mcm|ecm|tsp|tss|tr|trt|trr|trap|ap|trapn|traphist|traypac|trpray|trpspi|se|wset|oe|sy|mgf|gfm|mlf|lfm|lflf|der|integ|pb|nmon|polval|ov|dil|msk|mqk|m5k)\\b"
+				}
+			]
+		},
+
+		"procedures": {
+			"name": "meta.program.cosy",
+			"begin": "(?i)\\b(procedure|function|variable)\\b",
+			"beginCaptures": {
+			  "1": {
+				"name": "storage.type.cosy"
+			  }
+			},
+			"end": ";",
+			"patterns": [
+			  {
+				"include": "#comment"
+			  },
+			  {
+				"name": "entity.name.function.cosy",
+				"match": "(?i)([_a-z][0-9_a-z]*)"
+			  },
+			  {
+				"include": "#parameter-list"
+			  }
+			]
+		  },
+
+		"endfunctions":{
+			"patterns": [
+				{
+					"name": "storage.type.cosy",
+					"match": "(?xi)\\b(endprocedure|endfunction)\\b"
+				}
+			]
+		},
+
+		"operators": {
+			"patterns": [
+			  {
+				"match": "==|<|>|<=|>=|!=|:=",
+				"name": "keyword.operator.comparison.cosy"
+			  }
+			]
+		},
+
+		"ios":{
+			"patterns": [
+				{
+					"name": "entity.name.tag.cosy",
+					"match": "(?xi)\\b(read|write|include|save)\\b"
+				}
+			]
+		},
+
+		"identifier": {
+			"patterns": [
+			  {
+				"match": "(?i)([_a-z][0-9_a-z]*)\\s*\\(",
+				"captures": {
+				  "1": {
+					"name": "entity.name.function.cosy"
+				  }
+				}
+			  },
+			  {
+				"name": "variable.other.cosy",
+				"match": "(?i)\\b([_a-z][0-9_a-z]*)\\b(?!\\s*\\.)"
+			  },
+			  {
+				"name": "entity.name.class.cosy",
+				"match": "(?i)\\b([_a-z][0-9_a-z]*)\\b"
+			  }
+			]
+		  },
+
+		  "beginends":{
+			  "patterns": [
+				  {
+					  "name": "constant.flag.cosy",
+					  "match": "(?xi)\\b(begin|end)\\b"
+				  }
+			  ]
+		  }
+
+
+	},
+	"scopeName": "source.fox"
+}

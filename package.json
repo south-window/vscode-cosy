@@ -1,0 +1,31 @@
+{
+  "name": "cosy",
+  "publisher": "AoLiu",
+  "displayName": "COSY Infinity",
+  "description": "Syntax highlighting for beam dynamics simulation and analysis code COSY INFINITY.",
+  "version": "0.0.1",
+  "icon":"./COSY Infinity_12.ico",
+  "engines": {
+    "vscode": "^1.79.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/south-window/vscode-cosy"
+    },
+  "categories": [
+    "Programming Languages"
+  ],
+  "contributes": {
+    "languages": [{
+      "id": "cosy",
+      "aliases": ["COSY", "cosy"],
+      "extensions": [".fox"],
+      "configuration": "./language-configuration.json"
+    }],
+    "grammars": [{
+      "language": "cosy",
+      "scopeName": "source.fox",
+      "path": "./syntaxes/cosy.tmLanguage.json"
+    }]
+  }
+}
