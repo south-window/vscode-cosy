@@ -42,6 +42,51 @@
 	],
 
 	"repository": {
+		"comments": {
+			"begin": "\\{",
+			"beginCaptures": {
+				"0": {
+					"name": "comment.cosy"
+				}
+			},
+			"end": "\\}",
+			"endCaptures": {
+				"0": {
+					"name": "comment.cosy"
+				}
+			},
+			"patterns": [
+				{
+					"include": "#comments"
+				},
+				{
+					"match": "[^{}]+",
+					"name": "comment.cosy"
+				}
+			]
+		},
+
+		"identifier": {
+			"patterns": [
+			  {
+				"match": "(?i)([_a-z][0-9_a-z]*)\\s*\\(",
+				"captures": {
+				  "1": {
+					"name": "entity.name.function.cosy"
+				  }
+				}
+			  },
+			  {
+				"name": "variable.other.cosy",
+				"match": "(?i)\\b([_a-z][0-9_a-z]*)\\b(?!\\s*\\.)"
+			  },
+			  {
+				"name": "entity.name.class.cosy",
+				"match": "(?i)\\b([_a-z][0-9_a-z]*)\\b"
+			  }
+			]
+		  },
+		
 		"keywords": {
 			"patterns": [{
 				"name": "keyword.control.cosy",
@@ -59,16 +104,6 @@
 				}
 			]
 		},
-
-		"comments": {
-			"patterns": [
-			  {
-				"name": "comment.block.cosy",
-				"begin": "\\{",
-				"end": "\\}"
-			  }
-			]
-		  },
 		
 		"math": {
 			"patterns": [
@@ -116,9 +151,6 @@
 			  {
 				"name": "entity.name.function.cosy",
 				"match": "(?i)([_a-z][0-9_a-z]*)"
-			  },
-			  {
-				"include": "#parameter-list"
 			  }
 			]
 		  },
@@ -149,27 +181,6 @@
 				}
 			]
 		},
-
-		"identifier": {
-			"patterns": [
-			  {
-				"match": "(?i)([_a-z][0-9_a-z]*)\\s*\\(",
-				"captures": {
-				  "1": {
-					"name": "entity.name.function.cosy"
-				  }
-				}
-			  },
-			  {
-				"name": "variable.other.cosy",
-				"match": "(?i)\\b([_a-z][0-9_a-z]*)\\b(?!\\s*\\.)"
-			  },
-			  {
-				"name": "entity.name.class.cosy",
-				"match": "(?i)\\b([_a-z][0-9_a-z]*)\\b"
-			  }
-			]
-		  },
 
 		  "beginends":{
 			  "patterns": [
