@@ -8,4 +8,5 @@ Contact: [mailto://liuao@shanghaitech.edu.cn]
 COSY INFINITY is an arbitrary order beam dynamics simulation and analysis code. It allows the study of accelerator lattices, spectrographs, beamlines, electron microscopes, and many other devices. You can find more information on [this website](https://www.bmtdynamics.org/cosy/).
 
 Due to some issues, I am unable to upload to the VSCode extension marketplace. Please install it manually by downloading the .vsix file:)
+
 **Enjoy!**
