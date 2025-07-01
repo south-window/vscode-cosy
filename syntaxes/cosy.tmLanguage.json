@@ -6,6 +6,9 @@
 			"include": "#keywords"
 		},
 		{
+			"include": "#constants"
+		},
+		{
 			"include": "#strings"
 		},
 		{
@@ -13,6 +16,12 @@
 		},
 		{
 			"include": "#math"
+		},
+		{
+			"include": "#typefunctions"
+		},
+		{
+			"include": "#stringfunctions"
 		},
 		{
 			"include": "#operators"
@@ -90,7 +99,7 @@
 		"keywords": {
 			"patterns": [{
 				"name": "keyword.control.cosy",
-				"match": "(?xi)\\b(if|endif|elseif|while|endwhile|loop|endloop|ploop|endploop|fit|endfit)\\b"
+				"match": "(?xi)\\b(if|endif|elseif|else|while|endwhile|loop|endloop|ploop|endploop|fit|endfit|begin|end|quit|clear)\\b"
 			}]
 		},
 		"strings": {
@@ -108,7 +117,7 @@
 		"math": {
 			"patterns": [
 			  {
-				"match": "(?xi)\\b(?<!\\.)(sqrt|log|log|exp|sin|cos|tan|asin|acos|atan|sinh|cosh|tanh|isrt|isrt3|sqr)\\b",
+				"match": "(?xi)\\b(?<!\\.)(sqrt|log|exp|sin|cos|tan|asin|acos|atan|sinh|cosh|tanh|isrt|isrt3|sqr|abs|mod|real|imag|cons|length)\\b",
 				"name": "entity.name.function.cosy"
 			  }
 			  
@@ -167,8 +176,20 @@
 		"operators": {
 			"patterns": [
 			  {
-				"match": "==|<|>|<=|>=|!=|:=",
+				"match": "==|<|>|<=|>=|!=|#",
 				"name": "keyword.operator.comparison.cosy"
+			  },
+			  {
+				"match": ":=",
+				"name": "keyword.operator.assignment.cosy"
+			  },
+			  {
+				"match": "\\+|-|\\*|/|%",
+				"name": "keyword.operator.arithmetic.cosy"
+			  },
+			  {
+				"match": "&|\\|",
+				"name": "keyword.operator.special.cosy"
 			  }
 			]
 		},
@@ -184,11 +205,38 @@
 
 		  "beginends":{
 			  "patterns": [
-				  {
-					  "name": "constant.flag.cosy",
-					  "match": "(?xi)\\b(begin|end)\\b"
-				  }
 			  ]
+		  },
+
+		  "constants": {
+			"patterns": [
+				{
+					"name": "constant.language.cosy",
+					"match": "(?xi)\\b(true|false)\\b"
+				},
+				{
+					"name": "constant.numeric.cosy",
+					"match": "(?xi)\\b(pi|degrad|amu|amumev|ezero|clight)\\b"
+				}
+			]
+		  },
+
+		  "typefunctions": {
+			"patterns": [
+				{
+					"name": "entity.name.type.cosy",
+					"match": "(?xi)\\b(lo|cm|da|cd|ve|st|re)\\b(?=\\s*\\()"
+				}
+			]
+		  },
+
+		  "stringfunctions": {
+			"patterns": [
+				{
+					"name": "entity.name.function.cosy",
+					"match": "(?xi)\\b(s|sf|vmax|lst|lcd|lcm)\\b(?=\\s*\\()"
+				}
+			]
 		  }
 
 
