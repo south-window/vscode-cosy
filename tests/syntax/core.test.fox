@@ -1,0 +1,24 @@
+# SYNTAX TEST "source.fox" "core COSY syntax"
+WRITE 6 'hello world' ;
+# <~~~~~~~~------------- string.quoted.single.cosy
+WRITE 6 'don''t stop' ;
+# <~~~~~~~~~~~~-- constant.character.escape.cosy
+IF I=J ; WRITE 6 I ; ENDIF ;
+# <~~~~- keyword.operator.comparison.cosy
+IF I#J ; WRITE 6 I ; ENDIF ;
+# <~~~~- keyword.operator.comparison.cosy
+IF I<=J ; WRITE 6 I ; ENDIF ;
+# <~~~~-- keyword.operator.comparison.cosy
+IF I>=J ; WRITE 6 I ; ENDIF ;
+# <~~~~-- keyword.operator.comparison.cosy
+A := .5 ;
+# <~~~~~-- constant.numeric.float.cosy
+B := 1. ;
+# <~~~~~-- constant.numeric.float.cosy
+C := 1E-3 ;
+# <~~~~~---- constant.numeric.float.cosy
+D := 0.5D+2 ;
+# <~~~~~------ constant.numeric.float.cosy
+{K/M0/CLIGHT^2}
+# <--------------- comment.block.cosy
+VARIABLE ETA1 NM2 {K/M0/CLIGHT^2} ;
