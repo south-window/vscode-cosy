@@ -84,10 +84,6 @@
 			  },
 			  {
 				"name": "variable.other.cosy",
-				"match": "(?i)\\b([_a-z][0-9_a-z]*)\\b(?!\\s*\\.)"
-			  },
-			  {
-				"name": "entity.name.class.cosy",
 				"match": "(?i)\\b([_a-z][0-9_a-z]*)\\b"
 			  }
 			]
@@ -96,7 +92,7 @@
 		"keywords": {
 			"patterns": [{
 				"name": "keyword.control.cosy",
-				"match": "(?xi)\\b(if|endif|elseif|else|while|endwhile|loop|endloop|ploop|endploop|fit|endfit|begin|end|quit|clear)\\b"
+				"match": "(?xi)\\b(if|endif|elseif|while|endwhile|loop|endloop|ploop|endploop|fit|endfit|begin|end|quit|clear|debug|guiio)\\b"
 			}]
 		},
 		"strings": {
@@ -145,35 +141,37 @@
 		"BeamPhysics":{
 			"patterns": [
 				{
-					"name": "entity.name.function.cosy",
-					"match": "(?xi)\\b(rp|rpe|rpp|rpr|rpm|rps|sb|sp|sbe|um|sm|snm|am|anm|pm|psm|wm|rm|wsm|rsm|me|sigma|mr|mt|sr|ssr|er|scde|envel|encl|cr|pray|wray|pr|rray|sray|lray|aray|addrays|pspi|wspi|rspi|sspi|lspi|aspi|addspis|pty|bp|ep|pp|pg|pge|ps|dl|cb|mq|mh|mo|md|mz|m5|mm|mms|eq|eh|eo|ed|ez|e5|em|ems|ms|es|ec|ecl|esp|di|mss|dp|mc|wf|wc|wi|rf|cmr|cml|cmsi|cms|cmst|cmg|cel|cea|ceg|fr|fc|fp|fd|eset|wset|crsysca|fc2|fd2|ge|mf|mge|was|wa|bbc|el|wl|gls|gl|gp|gms|gmp|gmf|gm|sa|ta|ra|pa|ma|pt|ar|rr|tp|nf|ts|tsc|rfilt|rs|mcm|ecm|tsp|tss|tr|trt|trr|trap|ap|trapn|traphist|traypac|trpray|trpspi|se|wset|oe|sy|mgf|gfm|mlf|lfm|lflf|der|integ|pb|nmon|polval|ov|dil|msk|mqk|m5k)\\b"
+					"match": "(?xi)(?:^|(?<=;))\\s*\\b(rp|rpe|rpp|rpr|rpm|rps|sb|sp|sbe|um|sm|snm|am|anm|pm|psm|wm|rm|wsm|rsm|me|sigma|mr|mt|sr|ssr|er|scde|envel|encl|cr|pray|wray|pr|rray|sray|lray|aray|addrays|pspi|wspi|rspi|sspi|lspi|aspi|addspis|pty|bp|ep|pp|pg|pge|ps|dl|cb|mq|mh|mo|md|mz|m5|mm|mms|eq|eh|eo|ed|ez|e5|em|ems|ms|es|ec|ecl|esp|di|mss|dp|mc|wf|wc|wi|rf|cmr|cml|cmsi|cms|cmst|cmg|cel|cea|ceg|fr|fc|fp|fd|eset|wset|crsysca|fc2|fd2|ge|mf|mge|was|wa|bbc|el|wl|gls|gl|gp|gms|gmp|gmf|gm|sa|ta|ra|pa|ma|pt|ar|rr|tp|nf|ts|tsc|rfilt|rs|mcm|ecm|tsp|tss|tr|trt|trr|trap|ap|trapn|traphist|traypac|trpray|trpspi|se|oe|sy|mgf|gfm|mlf|lfm|lflf|der|integ|pb|nmon|polval|ov|dil|msk|mqk|m5k)\\b(?!\\s*:=)",
+					"captures": {
+						"1": {
+							"name": "entity.name.function.cosy"
+						}
+					}
 				}
 			]
 		},
 
 		"procedures": {
 			"name": "meta.program.cosy",
-			"begin": "(?i)\\b(procedure|function|variable)\\b",
+			"begin": "(?i)\\b(procedure|function|variable)\\b(?:\\s+([_a-z][0-9_a-z]*))?",
 			"beginCaptures": {
 			  "1": {
 				"name": "storage.type.cosy"
+			  },
+			  "2": {
+				"name": "entity.name.function.cosy"
 			  }
 			},
 			"end": ";",
 			"patterns": [
 			  {
-				"name": "comment.block.cosy",
-				"begin": "\\{",
-				"end": "\\}",
-				"patterns": [
-				  {
-					"include": "#comments"
-				  }
-				]
+				"include": "#comments"
 			  },
 			  {
-				"name": "entity.name.function.cosy",
-				"match": "(?i)([_a-z][0-9_a-z]*)"
+				"include": "#numbers"
+			  },
+			  {
+				"include": "#identifier"
 			  }
 			]
 		  },
@@ -198,7 +196,7 @@
 				"name": "keyword.operator.assignment.cosy"
 			  },
 			  {
-				"match": "\\+|-|\\*|/|%",
+				"match": "\\+|-|\\*|/|\\^|%",
 				"name": "keyword.operator.arithmetic.cosy"
 			  },
 			  {

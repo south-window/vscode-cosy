@@ -22,3 +22,24 @@ D := 0.5D+2 ;
 {K/M0/CLIGHT^2}
 # <--------------- comment.block.cosy
 VARIABLE ETA1 NM2 {K/M0/CLIGHT^2} ;
+IF I=J ; ELSEIF I<J ; ENDIF ;
+# <~~~~~~~~~------ keyword.control.cosy
+ELSE ;
+# <---- variable.other.cosy - keyword.control.cosy
+GUIIO -201 B ;
+# <----- keyword.control.cosy
+DEBUG ;
+# <----- keyword.control.cosy
+E := 2^3 ;
+# <~~~~~~- keyword.operator.arithmetic.cosy
+dl := 1.5 ;
+# <-- variable.other.cosy - entity.name.function.cosy
+DL 1.5 ;
+# <-- entity.name.function.cosy
+POLVAL 1 V N .5 R 1 ;
+# <------ entity.name.function.cosy
+# <~~~~~~~~~~~- variable.other.cosy - entity.name.class.cosy
+variable shot 1 ;
+# <-------- storage.type.cosy
+# <~~~~~~~~~---- entity.name.function.cosy
+# <~~~~~~~~~~~~~~- constant.numeric.integer.cosy

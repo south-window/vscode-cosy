@@ -3,7 +3,7 @@
   "publisher": "AoLiu",
   "displayName": "COSY Infinity",
   "description": "Syntax highlighting for beam dynamics simulation and analysis code COSY INFINITY.",
-  "version": "0.0.4",
+  "version": "0.0.5",
   "icon": "images/cosy.png",
   "engines": {
     "vscode": "^1.79.0"
