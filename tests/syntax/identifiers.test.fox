@@ -1,0 +1,13 @@
+# SYNTAX TEST "source.fox" "FOX identifiers start with an ASCII letter"
+VARIABLE A_B2 1 ;
+# <~~~~~~~~~---- entity.name.function.cosy
+A_B2 := 2 ;
+# <---- variable.other.cosy
+A_B2(1) ;
+# <---- entity.name.function.cosy
+VARIABLE _BAD 1 ;
+# <~~~~~~~~~---- source.fox - entity.name.function.cosy variable.other.cosy
+_BAD := 2 ;
+# <---- source.fox - entity.name.function.cosy variable.other.cosy
+_BAD(1) ;
+# <---- source.fox - entity.name.function.cosy variable.other.cosy

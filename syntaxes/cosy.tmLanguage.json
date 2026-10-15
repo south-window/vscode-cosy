@@ -75,7 +75,7 @@
 		"identifier": {
 			"patterns": [
 			  {
-				"match": "(?i)([_a-z][0-9_a-z]*)\\s*\\(",
+				"match": "(?i)\\b([a-z][0-9_a-z]*)\\s*\\(",
 				"captures": {
 				  "1": {
 					"name": "entity.name.function.cosy"
@@ -84,7 +84,7 @@
 			  },
 			  {
 				"name": "variable.other.cosy",
-				"match": "(?i)\\b([_a-z][0-9_a-z]*)\\b"
+				"match": "(?i)\\b([a-z][0-9_a-z]*)\\b"
 			  }
 			]
 		  },
@@ -153,7 +153,7 @@
 
 		"procedures": {
 			"name": "meta.program.cosy",
-			"begin": "(?i)\\b(procedure|function|variable)\\b(?:\\s+([_a-z][0-9_a-z]*))?",
+			"begin": "(?i)\\b(procedure|function|variable)\\b(?:\\s+([a-z][0-9_a-z]*))?",
 			"beginCaptures": {
 			  "1": {
 				"name": "storage.type.cosy"
